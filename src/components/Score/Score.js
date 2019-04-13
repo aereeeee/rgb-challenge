@@ -13,6 +13,7 @@ class Score extends Component {
         const {score} = this.state //분해대입 {this.state.score}를 더 편하게 쓰기 
         return(
             <p className={styles.wrapper}>Score: {score}</p>
+            
         )
     }
 }
