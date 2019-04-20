@@ -34,11 +34,36 @@ class App extends Component {
     }
   }
 
+  setNextStage = () => {
+    this.setState({
+      answers: [
+        { key:0, color: createRGBcode() },
+        { key:1, color: createRGBcode() },
+        { key:2, color: createRGBcode() },
+      ], 
+      selectedIndex: null,
+      correctAnswerIndex: sampleintLessThan(3),
+    })
+  }
+
+  setInitialStage = () => {
+    this.setState({
+      answers: [
+        { key:0, color: createRGBcode() },
+        { key:1, color: createRGBcode() },
+        { key:2, color: createRGBcode() },
+      ], 
+      selectedIndex: null,
+      correctAnswerIndex: sampleintLessThan(3),
+      score: 0,
+    })
+  } 
+
   render() {
     // 스테이트 읽어오는법
     // this.state.score
-    // 디스트럭쳐링으로 줄이는법
-    const { answers, score, selectedIndex,correctAnswerIndex}=this.state
+    // 디스트럭쳐링으로 줄이는법=분해대입
+    const { answers, score, selectedIndex, correctAnswerIndex}=this.state
     return (
       <div className={styles.wrapper}>
         <Heading />
@@ -46,13 +71,17 @@ class App extends Component {
             answers={answers} 
             score={score}
             selectAnswer={this.selectAnswer}
+            correctAnswerIndex={correctAnswerIndex}
+            selectedIndex={selectedIndex}
         />
         {/* selectedIndex가 널이 아닐때만 조건부 렌더, 참이면 && 뒤값 반환 falsy value */} 
         {selectedIndex!== null && (
           <Dialog 
             score={score}
-            correctIndex={correctAnswerIndex}
+            correctAnswerIndex={correctAnswerIndex}
             selectedIndex={selectedIndex}
+            setNextStage={this.setNextStage}
+            setInitialStage={this.setInitialStage}
           />     
         )}
       </div>

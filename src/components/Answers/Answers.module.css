@@ -17,3 +17,11 @@
     outline:none;
     cursor:pointer;
 }
+.answer.selected{
+    transform:scale(50);
+    z-index:10;
+    position: relative;
+}
+.button.selected{
+    display:none;
+}

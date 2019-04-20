@@ -1,8 +1,9 @@
 import React from 'react'
 import styles from './ColorCode.module.css'
+import Answers from '../Answers';
 
-const ColorCode = () => (
-    <div className={styles.wrapper}>rgb(100,100,100)</div>
+const ColorCode = ({answer}) => (
+    <div className={styles.wrapper}>{answer.color}</div>
 )
 
 
