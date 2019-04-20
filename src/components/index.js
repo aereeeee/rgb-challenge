@@ -1,3 +1,6 @@
 export { default as Game } from './Game'
 export { default as Heading } from './Heading'
 export { default as Score } from './Score'
+export { default as Answers } from './Answers'
+export { default as Dialog } from './Dialog'
+export { default as ColorCode } from './ColorCode'
